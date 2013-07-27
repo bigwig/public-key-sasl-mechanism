@@ -17,6 +17,7 @@ package io.bigwig.sasl;
 
 import com.rabbitmq.client.SaslConfig;
 import com.rabbitmq.client.SaslMechanism;
+import org.bouncycastle.jce.spec.ECNamedCurveParameterSpec;
 import org.bouncycastle.openssl.PEMReader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -45,7 +46,17 @@ public class PublicKeyConfig implements SaslConfig {
     KeyPair keyPair = null;
 
     try {
-      keyPair = (KeyPair) pemReader.readObject();
+
+      Object parsed = pemReader.readObject();
+
+      if (parsed instanceof KeyPair) {
+        keyPair = (KeyPair) pemReader.readObject();
+      }
+      else if (parsed instanceof ECNamedCurveParameterSpec) {
+        ECNamedCurveParameterSpec curveSpec = (ECNamedCurveParameterSpec) parsed;
+        keyPair = (KeyPair) pemReader.readObject();
+      }
+
     } catch (IOException e) {
       log.error("Could not read private key from source reader");
       throw new RuntimeException(e);

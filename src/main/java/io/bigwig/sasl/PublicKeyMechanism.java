@@ -51,7 +51,7 @@ public class PublicKeyMechanism implements SaslMechanism {
 
       try {
 
-        signer = Signature.getInstance("DSA", "BC");
+        signer = Signature.getInstance("SHA512WITHECDSA", "BC");
 
       } catch (NoSuchAlgorithmException e) {
         log.error("Could not load DSA algorithm");

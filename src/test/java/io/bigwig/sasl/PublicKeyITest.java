@@ -31,7 +31,7 @@ public class PublicKeyITest {
 
     // Read in a private key from the file system and pass it to the SASL configuration
 
-    InputStream is = getClass().getClassLoader().getResourceAsStream("test_dsa.pem");
+    InputStream is = getClass().getClassLoader().getResourceAsStream("ecdsa.pem");
     PublicKeyConfig saslConfig = new PublicKeyConfig(new InputStreamReader(is));
 
     ConnectionFactory factory = new ConnectionFactory();
