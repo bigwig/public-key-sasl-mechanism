@@ -23,7 +23,7 @@ task :release => :gather_parameters do
 
   chdir('checkout') do
     sh "git clone git@github.com:bigwig/public-key-sasl-mechanism.git"
-    chdir('diffa') do
+    chdir('public-key-sasl-mechanism') do
       sh "git checkout #{@tag_name}"
       sh "mvn clean javadoc:jar source:jar install -Dmaven.test.skip=true -Djetty.skip=true"
 

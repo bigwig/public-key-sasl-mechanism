@@ -10,6 +10,9 @@
 
   <packaging>jar</packaging>
 
+  <description>A SASL provider for the RabbitMQ Java library using public key authentication</description>
+  <url>https://github.com/bigwig/public-key-sasl-mechanism</url>
+
   <properties>
     <rabbit.version>3.1.3</rabbit.version>
     <commons.io.version>1.4</commons.io.version>
