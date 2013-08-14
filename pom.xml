@@ -4,7 +4,7 @@
 
   <groupId>io.bigwig</groupId>
   <artifactId>public-key-sasl-mechanism</artifactId>
-  <version>1.1-SNAPSHOT</version>
+  <version>1.0.1</version>
 
   <name>Bigwig Public Key SASL Mechanism</name>
 
@@ -33,7 +33,7 @@
   <scm>
     <url>https://github.com/bigwig/public-key-sasl-mechanism</url>
     <connection>scm:git:git@github.com:bigwig/public-key-sasl-mechanism.git</connection>
-    <tag>HEAD</tag>
+    <tag>v1_0_1</tag>
   </scm>
 
   <developers>
