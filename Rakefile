@@ -15,7 +15,7 @@ task :prepare => [:gather_parameters] do
   sh "mvn release:clean release:prepare -B -DpushChanges=true -DpreparationGoals=validate -DreleaseVersion=#{@version} -DdevelopmentVersion=#{@dev_version} -Dtag=#{@tag_name}"
 end
 
-task :release => :gather_parameters do
+task :release => :prepare do
   puts "Performing release #{@version}"
 
   sh("rm -rf checkout")
